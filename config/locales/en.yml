@@ -31,3 +31,5 @@
 
 en:
   hello: "Hello world"
+  invalid_character_type: 'Invalid character type'
+  character_name_exists: 'Character name has been already used'

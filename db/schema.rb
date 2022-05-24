@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_24_141049) do
   end
 
   create_table "characters", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "strength"
     t.integer "agility"
     t.integer "intelligence"
@@ -29,7 +29,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_24_141049) do
     t.integer "stamina"
     t.integer "focus"
     t.integer "mana"
-    t.integer "type"
+    t.string "bonus"
+    t.integer "character_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_characters_on_name", unique: true
@@ -38,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_24_141049) do
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.integer "damage"
+    t.integer "character_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,9 +1,9 @@
-module InteractorNamespace
+module ServiceNamespace
   class CharactersController < ApiController
     include Characters::StrongParams
 
     def create
-      result = Interactors::Characters::Create.call(create_params)
+      result = Services::Characters::Create.call(params: create_params)
       if result.success?
         render_success(entity: result.entity)
       else
