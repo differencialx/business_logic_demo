@@ -3,14 +3,15 @@ module TrailblazerOperations
     class Create < Trailblazer::Operation
       NO_BONUS = nil
 
-      step Model(Character, :new)
-      step Contract::Build(
-        constant: TrailblazerOperations::Contracts::Characters::Create
-      )
-      step Contract::Validate()
-      # step :validate_params
-      # fail :handle_fail, fail_fast: true
-      # step :init_model
+      # step Model(Character, :new)
+      # step Contract::Build(
+      #   constant: TrailblazerOperations::Contracts::Characters::Create
+      # )
+      # step Contract::Validate()
+      # step Contract::Persist(method: :sync)
+      step :validate_params
+      fail :handle_fail, fail_fast: true
+      step :init_model
       step :assign_attributes
       step :assign_skills
       step :generate_bonus
