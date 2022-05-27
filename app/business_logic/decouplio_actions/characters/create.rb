@@ -43,7 +43,7 @@ module DecouplioActions
         bonus =
           case character_type
           when 'warrior'
-            '+5% protection'
+            NO_BONUS
           when 'archer'
             '+3% crit'
           when 'mage'
@@ -51,6 +51,8 @@ module DecouplioActions
           end
 
         model.bonus = bonus
+
+        true
       end
     end
   end

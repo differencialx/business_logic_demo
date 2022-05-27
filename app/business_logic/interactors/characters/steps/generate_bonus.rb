@@ -10,7 +10,7 @@ module Interactors
           bonus =
             case context.character_type
             when 'warrior'
-              '+5% protection'
+              NO_BONUS
             when 'archer'
               '+3% crit'
             when 'mage'
